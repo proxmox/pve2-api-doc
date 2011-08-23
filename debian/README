@@ -1,0 +1,19 @@
+To enable the apache site use:
+
+# a2ensite pve2-api-doc.conf
+# /etc/init.d/apache2 reload
+
+To enable mediawiki 'pveman' plugin
+# mwenext pve-man-include.php
+
+Now you should be able to access the documentation at:
+
+* API docu browser
+http://your-server/pve2-api-doc
+
+* Manual pages
+http://your-server/pve2-api-doc/man/
+
+* Mediawiki Plugin
+{{#pveman:qm.1.html}}
+[[Category:Manual Pages]]

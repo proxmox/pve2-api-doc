@@ -1,0 +1,13 @@
+pve2-api-doc (2.0-4) unstable; urgency=low
+
+  * update to pve-manager 2.0-4
+  
+  * added mediawiki plugin for proxmox man pages
+
+ -- Proxmox Support Team <support@proxmox.com>  Wed, 10 Aug 2011 11:27:43 +0200
+
+pve2-api-doc (2.0-1) unstable; urgency=low
+
+  * first try
+
+ -- root <root@maui.maurer-it.com>  Thu, 16 Jun 2011 11:55:06 +0200
