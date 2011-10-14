@@ -1,7 +1,16 @@
 PREFIX=/usr
 DOCDIR=${PREFIX}/share/pve2-api-doc/
-MANPAGES=pvecm.1.html qm.1.html datacenter.cfg.5.html vm.conf.5.html
+
+MANPAGES=			\
+	pvecm.1.html 		\
+	qm.1.html 		\
+	datacenter.cfg.5.html 	\
+	vm.conf.5.html 		\
+	vzdump.1.html		\
+	pvectl.1.html
+
 PVECLUSTERPODDIR=/usr/share/doc/pve-cluster/pod
+PVEMANAGERPODDIR=/usr/share/doc/pve-manager/pod
 QEMUSERVERPODDIR=/usr/share/doc/qemu-server/pod
 
 all: ${MANPAGES} apidoc.js
@@ -24,6 +33,12 @@ qm.1.html: ${QEMUSERVERPODDIR}/qm.1.pod
 	cat $<|pod2html --noindex > $@
 
 vm.conf.5.html: ${QEMUSERVERPODDIR}/vm.conf.5.pod
+	cat $<|pod2html --noindex > $@
+
+vzdump.1.html: ${PVEMANAGERPODDIR}/vzdump.1.pod
+	cat $<|pod2html --noindex > $@
+
+pvectl.1.html: ${PVEMANAGERPODDIR}/pvectl.1.pod
 	cat $<|pod2html --noindex > $@
 
 .PHONY: install
