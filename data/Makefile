@@ -5,6 +5,7 @@ MANPAGES=			\
 	pvecm.1.html 		\
 	qm.1.html 		\
 	pvesm.1.html 		\
+	pveum.1.html 		\
 	datacenter.cfg.5.html 	\
 	vm.conf.5.html 		\
 	vzdump.1.html		\
@@ -14,6 +15,7 @@ PVECLUSTERPODDIR=/usr/share/doc/pve-cluster/pod
 PVEMANAGERPODDIR=/usr/share/doc/pve-manager/pod
 QEMUSERVERPODDIR=/usr/share/doc/qemu-server/pod
 PVESTORAGEPODDIR=/usr/share/doc/libpve-storage-perl/pod
+PVEACCESSPODDIR=/usr/share/doc/libpve-access-control/pod
 
 all: ${MANPAGES} apidoc.js
 
@@ -26,6 +28,9 @@ apidoc.js: ${JSSRC}
 	cat ${JSSRC} >$@
 
 pvecm.1.html: ${PVECLUSTERPODDIR}/pvecm.1.pod
+	cat $<|pod2html --noindex > $@
+
+pveum.1.html: ${PVEACCESSPODDIR}/pveum.1.pod
 	cat $<|pod2html --noindex > $@
 
 datacenter.cfg.5.html: ${PVECLUSTERPODDIR}/datacenter.cfg.5.pod
