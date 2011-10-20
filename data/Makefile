@@ -4,6 +4,7 @@ DOCDIR=${PREFIX}/share/pve2-api-doc/
 MANPAGES=			\
 	pvecm.1.html 		\
 	qm.1.html 		\
+	pvesm.1.html 		\
 	datacenter.cfg.5.html 	\
 	vm.conf.5.html 		\
 	vzdump.1.html		\
@@ -12,6 +13,7 @@ MANPAGES=			\
 PVECLUSTERPODDIR=/usr/share/doc/pve-cluster/pod
 PVEMANAGERPODDIR=/usr/share/doc/pve-manager/pod
 QEMUSERVERPODDIR=/usr/share/doc/qemu-server/pod
+PVESTORAGEPODDIR=/usr/share/doc/libpve-storage-perl/pod
 
 all: ${MANPAGES} apidoc.js
 
@@ -30,6 +32,9 @@ datacenter.cfg.5.html: ${PVECLUSTERPODDIR}/datacenter.cfg.5.pod
 	cat $<|pod2html --noindex > $@
 
 qm.1.html: ${QEMUSERVERPODDIR}/qm.1.pod
+	cat $<|pod2html --noindex > $@
+
+pvesm.1.html: ${PVESTORAGEPODDIR}/pvesm.1.pod
 	cat $<|pod2html --noindex > $@
 
 vm.conf.5.html: ${QEMUSERVERPODDIR}/vm.conf.5.pod
