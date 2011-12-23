@@ -1,7 +1,7 @@
 RELEASE=2.0
 
 VERSION=2.0
-PKGREL=10
+PKGREL=18
 
 PACKAGE=pve2-api-doc
 

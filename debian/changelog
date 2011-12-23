@@ -1,3 +1,9 @@
+pve2-api-doc (2.0-18) unstable; urgency=low
+
+  * update to pve-manager 2.0-18
+
+ -- Proxmox Support Team <support@proxmox.com>  Fri, 23 Dec 2011 11:41:29 +0100
+
 pve2-api-doc (2.0-10) unstable; urgency=low
 
   * update to pve-manager 2.0-10
