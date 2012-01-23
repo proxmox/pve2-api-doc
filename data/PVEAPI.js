@@ -85,7 +85,7 @@ Ext.onReady(function() {
     var render_docu = function(data) {
 	var md = data.info;
 
-	console.log(data);
+	// console.dir(data);
 
 	var items = [];
 
@@ -181,23 +181,27 @@ Ext.onReady(function() {
 		var permhtml = '';
 		if (!info.permissions) {
 		    permhtml = "Root only.";
-		} else if (info.permissions.user) {
-		    if (info.permissions.user === 'world') {
-			permhtml += "Accessible without any authententification.";
-		    } else if (info.permissions.user === 'all') {
-			permhtml += "Accessible by all authententicated users.";
-		    } else {
-			permhtml += 'Onyl accessible by user "' + 
-			    info.permissions.user + '"';
-		    }
-		} else if (info.permissions.path && info.permissions.privs) {
-		    permhtml += '<table><tr><td>Path:</td><td>' + 
-			info.permissions.path + '</td></tr>' +
-			'<tr><td style="padding-right:10px;">Permissions:</td><td>' + 
-			info.permissions.privs.join(' ') + 
-			'</td></tr></table>';
 		} else {
-		    permhtml += "Root only.";
+		    if (info.permissions.description) {
+			permhtml += "<div style='white-space:pre-wrap;padding-bottom:10px;'>" +
+			    Ext.htmlEncode(info.permissions.description) + "</div>";
+		    }
+
+		    if (info.permissions.user) {
+			if (info.permissions.user === 'world') {
+			    permhtml += "Accessible without any authententification.";
+			} else if (info.permissions.user === 'all') {
+			    permhtml += "Accessible by all authententicated users.";
+			} else {
+			    permhtml += 'Onyl accessible by user "' + 
+				info.permissions.user + '"';
+			}
+		    } else if (info.permissions.check) {
+			permhtml += "<pre>Check: " + 
+			    Ext.htmlEncode(Ext.JSON.encode(info.permissions.check))  + "</pre>";
+		    } else {
+			permhtml += "Unknown systax!";
+		    }
 		}
 
 		sections.push({
