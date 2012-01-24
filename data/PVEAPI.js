@@ -53,7 +53,7 @@ Ext.onReady(function() {
 
 	metaData.style = 'white-space:pre-wrap;'
 
-	return  value;
+	return Ext.htmlEncode(value);
     };
 
     var render_type = function(value, metaData, record) {
@@ -96,7 +96,7 @@ Ext.onReady(function() {
 		var sections = [
 		    {
 			title: 'Description',
-			html: info.description,
+			html: Ext.htmlEncode(info.description),
 			bodyPadding: 10
 		    }
 		];
