@@ -19,7 +19,6 @@ Ext.define('PVE.Table', {
 	    rows.push(record.data);
 	});
 
- 
 	me.renderData.rows = rows;
 	me.callParent(arguments);
     },
@@ -30,7 +29,7 @@ Ext.define('PVE.Table', {
 	'</tpl>'+ 
 	'</tr>',
 
-     metaRenderTpl: '<h1>{title}</h1>' +
+    metaRenderTpl: '<h1>{title}</h1>' +
 	'<table border="1" cellspacing="0" cellpadding="0">' +
 	'<tr><tpl for="columns">' +
 	'<th><div id="{parent.id}-th-resize{#}" style="background-color:red;">{header}</div></th>' +

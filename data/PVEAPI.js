@@ -188,13 +188,15 @@ Ext.onReady(function() {
 		    }
 
 		    if (info.permissions.user) {
-			if (info.permissions.user === 'world') {
-			    permhtml += "Accessible without any authententification.";
-			} else if (info.permissions.user === 'all') {
-			    permhtml += "Accessible by all authententicated users.";
-			} else {
-			    permhtml += 'Onyl accessible by user "' + 
-				info.permissions.user + '"';
+			if (!info.permissions.description) {
+			    if (info.permissions.user === 'world') {
+				permhtml += "Accessible without any authententification.";
+			    } else if (info.permissions.user === 'all') {
+				permhtml += "Accessible by all authententicated users.";
+			    } else {
+				permhtml += 'Onyl accessible by user "' + 
+				    info.permissions.user + '"';
+			    }
 			}
 		    } else if (info.permissions.check) {
 			permhtml += "<pre>Check: " + 
