@@ -83,14 +83,31 @@ Ext.onReady(function() {
 
 	var items = [];
 
+	var clicmdhash = {
+	    GET: 'get',
+	    POST: 'create',
+	    PUT: 'set',
+	    DELETE: 'delete'
+	};
+
 	Ext.Array.each(['GET', 'POST', 'PUT', 'DELETE'], function(method) {
 	    var info = md[method];
 	    if (info) {
+
+		var usage = "";
+
+		usage += "<table><tr><td>HTTP:&nbsp;&nbsp;&nbsp;</td><td>" + method + " /api2/json" + data.path + "</td></tr><tr><td>&nbsp</td></tr>";
+		usage += "<tr><td>CLI:</td><td>pvesh " + clicmdhash[method] + " " + data.path + "</td></tr></table>";
 
 		var sections = [
 		    {
 			title: 'Description',
 			html: Ext.htmlEncode(info.description),
+			bodyPadding: 10
+		    },
+		    {
+			title: 'Usage',
+			html: usage,
 			bodyPadding: 10
 		    }
 		];
