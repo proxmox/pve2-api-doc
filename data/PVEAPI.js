@@ -1,9 +1,3 @@
-Ext.require([
-    'Ext.tree.*',
-    'Ext.data.*',
-    'Ext.window.MessageBox'
-]);
-
 // avoid errors when running without development tools
 if (!Ext.isDefined(Ext.global.console)) {   
     var console = { 
