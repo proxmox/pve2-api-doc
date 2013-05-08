@@ -2,7 +2,7 @@ Source: pve2-api-doc
 Section: doc
 Priority: extra
 Maintainer: Proxmox Support Team <support@proxmox.com>
-Build-Depends: debhelper (>= 7.0.50~), pve-manager (= 3.0-1)
+Build-Depends: debhelper (>= 7.0.50~), pve-manager (= 3.0-13)
 Standards-Version: 3.8.4
 
 Package: pve2-api-doc

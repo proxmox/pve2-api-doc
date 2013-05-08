@@ -1,6 +1,6 @@
-pve2-api-doc (3.0-1) unstable; urgency=low
+pve2-api-doc (3.0-13) unstable; urgency=low
 
-  * update to pve-manager 3.0-1
+  * update to pve-manager 3.0-13
 
  -- Proxmox Support Team <support@proxmox.com>  Thu, 21 Mar 2013 07:08:58 +0100
 
