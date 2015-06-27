@@ -9,13 +9,20 @@ MANPAGES=			\
 	datacenter.cfg.5.html 	\
 	vm.conf.5.html 		\
 	vzdump.1.html		\
-	pvectl.1.html
+	pve-firewall.1.html	\
+	pve-ha-lrm.1.html	\
+	pve-ha-crm.1.html	\
+	ha-manager.1.html	\
+	pct.1.html
 
 PVECLUSTERPODDIR=/usr/share/doc/pve-cluster/pod
 PVEMANAGERPODDIR=/usr/share/doc/pve-manager/pod
 QEMUSERVERPODDIR=/usr/share/doc/qemu-server/pod
+PVECONTAINERPODDIR=/usr/share/doc/pve-container/pod
 PVESTORAGEPODDIR=/usr/share/doc/libpve-storage-perl/pod
 PVEACCESSPODDIR=/usr/share/doc/libpve-access-control/pod
+PVEFIREWALLPODDIR=/usr/share/doc/pve-firewall/pod
+PVEHAMANAGERPODDIR=/usr/share/doc/pve-ha-manager/pod
 
 all: ${MANPAGES} apidoc.js
 
@@ -38,6 +45,21 @@ datacenter.cfg.5.html: ${PVECLUSTERPODDIR}/datacenter.cfg.5.pod
 
 qm.1.html: ${QEMUSERVERPODDIR}/qm.1.pod
 	cat $<|pod2html --noindex > $@
+
+pct.1.html: ${PVECONTAINERPODDIR}/pct.1.pod.gz
+	zcat $<|pod2html --noindex > $@
+
+pve-firewall.1.html: ${PVEFIREWALLPODDIR}/pve-firewall.1.pod
+	cat $<|pod2html --noindex > $@
+
+pve-ha-lrm.1.html: ${PVEHAMANAGERPODDIR}/pve-ha-lrm.1.pod
+	cat $<|pod2html --noindex > $@
+
+pve-ha-crm.1.html: ${PVEHAMANAGERPODDIR}/pve-ha-crm.1.pod
+	cat $<|pod2html --noindex > $@
+
+ha-manager.1.html: ${PVEHAMANAGERPODDIR}/ha-manager.1.pod.gz	
+	zcat $<|pod2html --noindex > $@
 
 pvesm.1.html: ${PVESTORAGEPODDIR}/pvesm.1.pod
 	cat $<|pod2html --noindex > $@
