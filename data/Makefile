@@ -13,6 +13,7 @@ MANPAGES=			\
 	pve-ha-lrm.1.html	\
 	pve-ha-crm.1.html	\
 	ha-manager.1.html	\
+	pct.conf.5.html		\
 	pct.1.html
 
 PVECLUSTERPODDIR=/usr/share/doc/pve-cluster/pod
@@ -49,6 +50,9 @@ qm.1.html: ${QEMUSERVERPODDIR}/qm.1.pod
 pct.1.html: ${PVECONTAINERPODDIR}/pct.1.pod.gz
 	zcat $<|pod2html --noindex > $@
 
+pct.conf.5.html: ${PVECONTAINERPODDIR}/pct.conf.5.pod
+	cat $<|pod2html --noindex > $@
+
 pve-firewall.1.html: ${PVEFIREWALLPODDIR}/pve-firewall.1.pod
 	cat $<|pod2html --noindex > $@
 
@@ -68,9 +72,6 @@ vm.conf.5.html: ${QEMUSERVERPODDIR}/vm.conf.5.pod
 	cat $<|pod2html --noindex > $@
 
 vzdump.1.html: ${PVEMANAGERPODDIR}/vzdump.1.pod
-	cat $<|pod2html --noindex > $@
-
-pvectl.1.html: ${PVEMANAGERPODDIR}/pvectl.1.pod
 	cat $<|pod2html --noindex > $@
 
 .PHONY: install
