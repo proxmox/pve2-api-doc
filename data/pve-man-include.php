@@ -36,11 +36,21 @@ function efPvemanParserFunction_Render( $parser, $param1 = '', $param2 = '' ) {
 	$parser->disableCache();
 
 	$allowed = array(
-		'pvecm.1.html' => 1, 
-		'qm.1.html' => 1, 
-		'datacenter.cfg.5.html' => 1,
-		'vm.conf.5.html' => 1,
-		);
+	    'pvecm.1.html' => 1,
+	    'qm.1.html' => 1,
+	    'datacenter.cfg.5.html' => 1,
+	    'vm.conf.5.html' => 1,
+	    'ha-manager.1.html' => 1,
+	    'pct.1.html' => 1,
+	    'pct.conf.5.html' => 1,
+	    'pve-firewall.8.html' => 1,
+	    'pveceph.1.html' => 1,
+	    'pvesm.1.html' => 1,
+	    'pvesubscription.1.html' => 1,
+	    'pveum.1.html' => 1,
+	    'qmrestore.1.html' => 1,
+	    'vzdump.1.html' => 1,
+	    );
 
 	if (!$allowed[$param1]) {
 		die ("no such manual page");
