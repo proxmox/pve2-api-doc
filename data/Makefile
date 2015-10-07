@@ -9,7 +9,7 @@ MANPAGES=			\
 	datacenter.cfg.5.html 	\
 	vm.conf.5.html 		\
 	vzdump.1.html		\
-	pve-firewall.1.html	\
+	pve-firewall.8.html	\
 	pve-ha-lrm.1.html	\
 	pve-ha-crm.1.html	\
 	ha-manager.1.html	\
@@ -50,10 +50,10 @@ qm.1.html: ${QEMUSERVERPODDIR}/qm.1.pod
 pct.1.html: ${PVECONTAINERPODDIR}/pct.1.pod.gz
 	zcat $<|pod2html --noindex > $@
 
-pct.conf.5.html: ${PVECONTAINERPODDIR}/pct.conf.5.pod
-	cat $<|pod2html --noindex > $@
+pct.conf.5.html: ${PVECONTAINERPODDIR}/pct.conf.5.pod.gz
+	zcat $<|pod2html --noindex > $@
 
-pve-firewall.1.html: ${PVEFIREWALLPODDIR}/pve-firewall.1.pod
+pve-firewall.8.html: ${PVEFIREWALLPODDIR}/pve-firewall.8.pod
 	cat $<|pod2html --noindex > $@
 
 pve-ha-lrm.1.html: ${PVEHAMANAGERPODDIR}/pve-ha-lrm.1.pod
