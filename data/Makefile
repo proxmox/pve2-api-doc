@@ -1,20 +1,17 @@
 PREFIX=/usr
 DOCDIR=${PREFIX}/share/pve2-api-doc/
 
+MAN1PAGES=$(subst .pm,.1.html,$(subst _,-,$(shell cd /usr/share/perl5/PVE/CLI; ls *.pm)))
+
+# we currently do not generate manpages for service
+#MAN8PAGES=$(subst .pm,.8.html,$(subst _,-,$(shell cd /usr/share/perl5/PVE/Service; ls *.pm)))
+
 MANPAGES=			\
-	pvecm.1.html 		\
-	qm.1.html 		\
-	pvesm.1.html 		\
-	pveum.1.html 		\
+	${MAN1PAGES}		\
+	pve-firewall.8.html	\
 	datacenter.cfg.5.html 	\
 	vm.conf.5.html 		\
-	vzdump.1.html		\
-	pve-firewall.8.html	\
-	pve-ha-lrm.1.html	\
-	pve-ha-crm.1.html	\
-	ha-manager.1.html	\
-	pct.conf.5.html		\
-	pct.1.html
+	pct.conf.5.html
 
 PVECLUSTERPODDIR=/usr/share/doc/pve-cluster/pod
 PVEMANAGERPODDIR=/usr/share/doc/pve-manager/pod
@@ -47,6 +44,9 @@ datacenter.cfg.5.html: ${PVECLUSTERPODDIR}/datacenter.cfg.5.pod
 qm.1.html: ${QEMUSERVERPODDIR}/qm.1.pod
 	cat $<|pod2html --noindex > $@
 
+qmrestore.1.html: ${QEMUSERVERPODDIR}/qmrestore.1.pod
+	cat $<|pod2html --noindex > $@
+
 pct.1.html: ${PVECONTAINERPODDIR}/pct.1.pod.gz
 	zcat $<|pod2html --noindex > $@
 
@@ -56,11 +56,11 @@ pct.conf.5.html: ${PVECONTAINERPODDIR}/pct.conf.5.pod.gz
 pve-firewall.8.html: ${PVEFIREWALLPODDIR}/pve-firewall.8.pod
 	cat $<|pod2html --noindex > $@
 
-pve-ha-lrm.1.html: ${PVEHAMANAGERPODDIR}/pve-ha-lrm.1.pod
-	cat $<|pod2html --noindex > $@
+#pve-ha-lrm.1.html: ${PVEHAMANAGERPODDIR}/pve-ha-lrm.1.pod
+#	cat $<|pod2html --noindex > $@
 
-pve-ha-crm.1.html: ${PVEHAMANAGERPODDIR}/pve-ha-crm.1.pod
-	cat $<|pod2html --noindex > $@
+#pve-ha-crm.1.html: ${PVEHAMANAGERPODDIR}/pve-ha-crm.1.pod
+#	cat $<|pod2html --noindex > $@
 
 ha-manager.1.html: ${PVEHAMANAGERPODDIR}/ha-manager.1.pod.gz	
 	zcat $<|pod2html --noindex > $@
@@ -72,6 +72,12 @@ vm.conf.5.html: ${QEMUSERVERPODDIR}/vm.conf.5.pod
 	cat $<|pod2html --noindex > $@
 
 vzdump.1.html: ${PVEMANAGERPODDIR}/vzdump.1.pod
+	cat $<|pod2html --noindex > $@
+
+pveceph.1.html: ${PVEMANAGERPODDIR}/pveceph.1.pod
+	cat $<|pod2html --noindex > $@
+
+pvesubscription.1.html: ${PVEMANAGERPODDIR}/pvesubscription.1.pod
 	cat $<|pod2html --noindex > $@
 
 .PHONY: install
