@@ -8,6 +8,7 @@ MAN1PAGES=$(subst .pm,.1.html,$(subst _,-,$(shell cd /usr/share/perl5/PVE/CLI; l
 
 MANPAGES=			\
 	${MAN1PAGES}		\
+	dab.1.html		\
 	pve-firewall.8.html	\
 	datacenter.cfg.5.html 	\
 	vm.conf.5.html 		\
@@ -21,6 +22,7 @@ PVESTORAGEPODDIR=/usr/share/doc/libpve-storage-perl/pod
 PVEACCESSPODDIR=/usr/share/doc/libpve-access-control/pod
 PVEFIREWALLPODDIR=/usr/share/doc/pve-firewall/pod
 PVEHAMANAGERPODDIR=/usr/share/doc/pve-ha-manager/pod
+DABPODDIR=/usr/share/doc/dab/pod
 
 all: ${MANPAGES} apidoc.js
 
@@ -31,6 +33,9 @@ JSSRC= apidata.js PVEAPI.js
 
 apidoc.js: ${JSSRC}
 	cat ${JSSRC} >$@
+
+dab.1.html: ${DABPODDIR}/dab.1.pod
+	cat $<|pod2html --noindex > $@
 
 pvecm.1.html: ${PVECLUSTERPODDIR}/pvecm.1.pod
 	cat $<|pod2html --noindex > $@
