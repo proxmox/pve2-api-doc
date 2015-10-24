@@ -37,8 +37,8 @@ apidoc.js: ${JSSRC}
 dab.1.html: ${DABPODDIR}/dab.1.pod
 	cat $<|pod2html --noindex > $@
 
-pvecm.1.html: ${PVECLUSTERPODDIR}/pvecm.1.pod
-	cat $<|pod2html --noindex > $@
+pvecm.1.html: ${PVECLUSTERPODDIR}/pvecm.1.pod.gz
+	zcat $<|pod2html --noindex > $@
 
 pveum.1.html: ${PVEACCESSPODDIR}/pveum.1.pod
 	cat $<|pod2html --noindex > $@
