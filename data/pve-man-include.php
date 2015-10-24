@@ -36,6 +36,7 @@ function efPvemanParserFunction_Render( $parser, $param1 = '', $param2 = '' ) {
 	$parser->disableCache();
 
 	$allowed = array(
+	    'dab.1.html' => 1,
 	    'pvecm.1.html' => 1,
 	    'qm.1.html' => 1,
 	    'datacenter.cfg.5.html' => 1,
